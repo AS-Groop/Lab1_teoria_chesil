@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            transition: all 0.3s ease;
+            font-family: sans-serif;
+        }
+        body{
+            background: linear-gradient(75deg,#02a256,#9856f3);
+        }
+        .section{
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form{
+            width: 280px;
+            margin: 20px;
+            padding: 30px 30px 10px;
+            border-radius: 12px;
+            box-shadow: 2px 2px 6px #000000;
+            background: rgba(255,255,255,0.1);
+        }
+        .title {
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #ffffff;
+        }
+        span{
+            color: #ffffff;
+        }
+        input {
+            margin-bottom: 40px;
+            margin-top: 6px;
+            width: calc(100% - 30px);
+            outline: none;
+            padding: 8px 15px;
+            border:none;
+            border-radius: 4px;
+        }
+        .btn {
+            margin-bottom: 40px;
+            padding: 8px 15px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 0 2px #000000;
+            color:#fff;
+            user-select: none;
+        }
+        .btn:hover{
+            box-shadow: 0 0 4px #000000,2px 2px 4px #000000;
+        }
+        .btn:active{
+            box-shadow: inset -4px -4px 4px rgba(0,0,0, 0.5),-4px -4px 4px rgba(0,0,0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="form">
+            <div class="title">Лабораторная работа №1</div>
+            <span>Введите число 1:</span>
+            <input type="number" class="int">
+            <span>Введите число 2:</span>
+            <input type="number" class="out">
+            <div class="btn">Применить</div>
+            <span>Наибольший общий делитель</span>
+            <input type="text" class="ans" disabled>
+        </div>
+    </div>
+
+    <script>
+        const inNumber = document.querySelector('.int');
+        const outNumber = document.querySelector('.out');
+        const ans = document.querySelector('.ans');
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click',()=>{
+            let a = +inNumber.value;
+            let b = +outNumber.value;
+            while (a !== b){
+                if (a > b) a = a - b;
+                else b = b - a;
+            }
+            ans.value = b;
+
+        })
+    </script>
+</body>
+</html>
